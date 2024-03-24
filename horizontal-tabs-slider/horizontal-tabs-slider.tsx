@@ -33,16 +33,17 @@ const HorizontalTabsSlider = ({
   const Styles = createStyle({height: viewHeight});
   return (
     <FlatList
-      data={listOfData}
-      ref={(ref) => {
-        scrollRef.current = ref;
-      }}
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={Styles.contentCointainer}
       style={Styles.cointainer}
       keyExtractor={(item) => item.index.toString()}
       ItemSeparatorComponent={() => <Spacer size={16} isVertical={false} />}
+      {...props}
+      data={listOfData}
+      ref={(ref) => {
+        scrollRef.current = ref;
+      }}
       renderItem={({item, index}) => (
         <View
           onLayout={(e) => {

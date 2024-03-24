@@ -1,35 +1,47 @@
-import { useEffect, useRef, useState } from 'react';
-import UseHorizontalSliderProps from './interfaces';
-import { ListItem } from '../interfaces';
+import {useEffect, useRef, useState} from "react";
+import UseHorizontalSliderProps from "./interfaces";
+import {ListItem} from "../interfaces";
 
-const useHorizontalSlider = ({ list, isMultySelection, ...props }: UseHorizontalSliderProps) => {
+const useHorizontalSlider = ({
+  list,
+  isMultySelection,
+  ...props
+}: UseHorizontalSliderProps) => {
   const [listOfData, setlistOfData] = useState<ListItem[]>([...list]);
-  const [selectedItemsIndexs, setSelectedItemsIndexs] = useState([0]);
+  const [selectedItemsIndexs, setSelectedItemsIndexs] = useState([]);
   const [viewHeight, setViewHeight] = useState(0);
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    if (listOfData?.length > 0) {
+    if (listOfData?.length > 0 && !isMultySelection) {
       onSelectItem(listOfData[0]);
     }
   }, [JSON.stringify(listOfData.length)]);
 
   const onDeleteItemFromList = (itemToDelete: ListItem) => {
-    const listSelectedWithoutItemIndex = selectedItemsIndexs.filter(index => index !== itemToDelete.index);
-    const listDataWithoutItemIndex = listOfData.filter(item => item.index !== itemToDelete.index);
+    const listSelectedWithoutItemIndex = selectedItemsIndexs.filter(
+      (index) => index !== itemToDelete.index
+    );
+    const listDataWithoutItemIndex = listOfData.filter(
+      (item) => item.index !== itemToDelete.index
+    );
 
     setSelectedItemsIndexs([...listSelectedWithoutItemIndex]);
     setlistOfData([...listDataWithoutItemIndex]);
   };
 
   const onSelectItem = (item: ListItem) => {
-    let indexInList = listOfData.findIndex(itemData => itemData.index === item.index);
+    let indexInList = listOfData.findIndex(
+      (itemData) => itemData.index === item.index
+    );
 
     if (isMultySelection) {
       if (!selectedItemsIndexs.includes(item.index)) {
         setSelectedItemsIndexs([...selectedItemsIndexs, item.index]);
       } else {
-        const listWithoutItemIndex = selectedItemsIndexs.filter(index => index !== item.index);
+        const listWithoutItemIndex = selectedItemsIndexs.filter(
+          (index) => index !== item.index
+        );
         setSelectedItemsIndexs([...listWithoutItemIndex]);
       }
     } else {
@@ -37,7 +49,7 @@ const useHorizontalSlider = ({ list, isMultySelection, ...props }: UseHorizontal
     }
 
     const x = indexInList * 100;
-    scrollRef?.current?.scrollToIndex({ index: indexInList, animated: true });
+    scrollRef?.current?.scrollToIndex({index: indexInList, animated: true});
   };
   return {
     listOfData,
