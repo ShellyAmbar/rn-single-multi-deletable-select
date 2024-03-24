@@ -7,6 +7,7 @@ const createStyle = ({
   colorSelected,
   colorUnSelected,
   textStyle,
+  containerStyle,
   ...props
 }: TabItemStylesProps) => {
   return StyleSheet.create({
@@ -28,6 +29,7 @@ const createStyle = ({
       alignItems: "center",
       flexDirection: "column",
       marginVertical: 15,
+      ...{...containerStyle},
     },
     text: {
       color: isSelected ? colorSelected : colorUnSelected,

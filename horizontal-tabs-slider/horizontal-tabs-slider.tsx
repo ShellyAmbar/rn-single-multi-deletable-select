@@ -15,6 +15,7 @@ const HorizontalTabsSlider = ({
   colorSelected,
   colorUnSelected,
   textStyle,
+  itemContainerStyle,
   ...props
 }: HorizontalSliderProps) => {
   const {
@@ -68,6 +69,7 @@ const HorizontalTabsSlider = ({
               onPressItem && onPressItem(item);
             }}
             selectedItemsIndexs={selectedItemsIndexs}
+            containerStyle={itemContainerStyle}
           />
         </View>
       )}

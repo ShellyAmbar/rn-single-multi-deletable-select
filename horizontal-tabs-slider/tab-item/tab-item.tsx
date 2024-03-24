@@ -14,6 +14,7 @@ const TabItem = ({
   colorSelected = "#1E90FF",
   colorUnSelected = "#D7D9DE",
   textStyle,
+  containerStyle,
   ...props
 }: TabItemProps) => {
   const isSelected = selectedItemsIndexs.includes(item.index);
@@ -23,6 +24,7 @@ const TabItem = ({
     colorSelected,
     colorUnSelected,
     textStyle,
+    containerStyle,
   });
 
   return (

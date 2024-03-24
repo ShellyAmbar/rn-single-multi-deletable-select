@@ -53,14 +53,15 @@ import HorizontalTabsSlider from 'rn-single-multi-deletable-select';
 
 # HorizontalSlider Props -
 
-| Name             | Type                     | Default |
-| ---------------- | ------------------------ | ------- |
-| dataList         | ListItem[]               |
-| isMultySelection | ?boolean                 |
-| onPressItem      | (item: ListItem) => void |
-| onDeleteItem     | (item: ListItem) => void |
-| isDeletable      | boolean                  |
-| colorSelected    | string                   |
-| colorUnSelected  | string                   |
-| textStyle        | TextStyle                |
-| props            | FlatListProps            |
+| Name               | Type                     | Default |
+| ------------------ | ------------------------ | ------- |
+| dataList           | ListItem[]               |
+| isMultySelection   | ?boolean                 |
+| onPressItem        | (item: ListItem) => void |
+| onDeleteItem       | (item: ListItem) => void |
+| isDeletable        | boolean                  |
+| colorSelected      | string                   |
+| colorUnSelected    | string                   |
+| textStyle          | TextStyle                |
+| itemContainerStyle | ViewStyle                |
+| props              | FlatListProps            |

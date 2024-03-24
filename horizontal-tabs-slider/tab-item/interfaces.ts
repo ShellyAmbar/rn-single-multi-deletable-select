@@ -1,5 +1,5 @@
-import { TextStyle, ViewStyle } from 'react-native';
-import { ListItem } from '../interfaces';
+import {TextStyle, ViewStyle} from "react-native";
+import {ListItem} from "../interfaces";
 
 type TabItemProps = {
   onPress: (item: ListItem) => void;
@@ -10,6 +10,7 @@ type TabItemProps = {
   colorSelected?: string;
   colorUnSelected?: string;
   textStyle?: TextStyle;
+  containerStyle?: ViewStyle;
 };
 
 type TabItemStylesProps = {
@@ -18,6 +19,7 @@ type TabItemStylesProps = {
   colorSelected?: string;
   colorUnSelected?: string;
   textStyle?: TextStyle;
+  containerStyle?: ViewStyle;
 };
 
-export { TabItemProps, TabItemStylesProps };
+export {TabItemProps, TabItemStylesProps};
