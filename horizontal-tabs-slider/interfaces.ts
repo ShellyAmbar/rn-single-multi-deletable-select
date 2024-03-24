@@ -1,4 +1,4 @@
-import { TextStyle } from 'react-native';
+import {TextStyle, FlatListProps} from "react-native";
 
 type ListItem = {
   name: string;
@@ -14,6 +14,6 @@ type HorizontalSliderProps = {
   colorSelected?: string;
   colorUnSelected?: string;
   textStyle?: TextStyle;
-};
+} & Partial<FlatListProps<ListItem>>;
 
-export { ListItem, HorizontalSliderProps };
+export {ListItem, HorizontalSliderProps};
